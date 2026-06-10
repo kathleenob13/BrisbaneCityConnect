@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brisbane City Connect — Executive Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====================================================
+       PERSISTENT HEADER (always visible)
+  ==================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <span class="logo-mark">BCC</span>
+        <span class="logo-text">Brisbane City Connect</span>
+      </div>
+      <span class="demo-badge">Executive Demo</span>
+    </div>
+  </header>
+
+  <!-- ====================================================
+       SCENE CONTAINER
+  ==================================================== -->
+  <main class="scene-container">
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 1: Current State
+    ────────────────────────────────────────────── -->
+    <section class="scene active" id="scene-current-state" data-label="Current State">
+
+      <div class="scene-tag">Scene 1 — Current State</div>
+
+      <div class="cs-header">
+        <div>
+          <h2 class="scene-title">Today's Brisbane experience</h2>
+          <p class="scene-context cs-subheading">
+            Valuable assets. Fragmented experience. Residents navigate across separate apps and channels — with no contextual or proactive guidance connecting them.
+          </p>
+        </div>
+      </div>
+
+      <!-- Screenshot grid — real images -->
+      <div class="cs-screenshot-grid">
+
+        <div class="cs-screenshot-card">
+          <div class="cs-screenshot-frame">
+            <img src="images/IMG_1974.jpeg" alt="Brisbane app — Explore places and events" />
+          </div>
+          <div class="cs-screenshot-label">Explore places and events</div>
+          <div class="cs-friction-tag">
+            <span class="friction-dot"></span>Search and browse driven
+          </div>
+        </div>
+
+        <div class="cs-screenshot-card">
+          <div class="cs-screenshot-frame">
+            <img src="images/IMG_1975.jpeg" alt="Brisbane app — Guides and local discovery" />
+          </div>
+          <div class="cs-screenshot-label">Guides and local discovery</div>
+          <div class="cs-friction-tag">
+            <span class="friction-dot"></span>Separate, disconnected apps
+          </div>
+        </div>
+
+        <div class="cs-screenshot-card">
+          <div class="cs-screenshot-frame">
+            <img src="images/IMG_1976.jpeg" alt="Brisbane app — Business listing and promotion" />
+          </div>
+          <div class="cs-screenshot-label">Business listing and promotion</div>
+          <div class="cs-friction-tag">
+            <span class="friction-dot"></span>Requires opt-in listing
+          </div>
+        </div>
+
+        <div class="cs-screenshot-card">
+          <div class="cs-screenshot-frame">
+            <img src="images/IMG_1977.jpeg" alt="Brisbane app — Bins and recycling" />
+          </div>
+          <div class="cs-screenshot-label">Bins and recycling</div>
+          <div class="cs-friction-tag">
+            <span class="friction-dot"></span>Limited contextual assistance
+          </div>
+        </div>
+
+      </div><!-- /cs-screenshot-grid -->
+
+      <!-- CTA to next scene -->
+      <div class="cs-cta-row">
+        <button class="btn-cta" onclick="goTo(1)">
+          See how City Connect changes this &nbsp;→
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 2: City Connect in Action — David's Journey
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-david" data-label="City Connect in Action">
+
+      <!-- Scene label + visitor toggle -->
+      <div class="scene2-topbar">
+        <div class="scene-tag" style="margin-bottom:0;">Scene 2 — City Connect in Action</div>
+        <button class="btn-visitor-toggle" id="btnVisitorToggle" onclick="toggleVisitorView()">
+          <span class="visitor-toggle-dot"></span>
+          Switch to visitor view
+        </button>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+           VISITOR VIEW — Hiroshi (hidden by default)
+      ══════════════════════════════════════════════ -->
+      <div id="hiroshiPanel" style="display:none;">
+
+        <!-- Persona + language bar -->
+        <div class="hiroshi-hero">
+          <div class="hiroshi-hero-left">
+            <div class="hiroshi-persona-chip">
+              <span class="persona-avatar">👤</span>
+              <div>
+                <span class="persona-name">Hiroshi</span>
+                <span class="persona-detail">International visitor · Tokyo, Japan · First visit to Brisbane</span>
+              </div>
+            </div>
+            <h2 class="david-hero-title" style="margin-bottom:0.5rem;">
+              ブリスベンへようこそ、Hiroshi さん。
+            </h2>
+            <p class="hiroshi-translation-line">Welcome to Brisbane, Hiroshi.</p>
+            <p class="david-hero-sub" style="margin-top:0.6rem;">
+              You're heading to the Rugby World Cup tonight. City Connect has detected your language preference and is ready to help.
+            </p>
+            <div class="david-context-pills">
+              <span class="ctx-pill">📍 Brisbane CBD</span>
+              <span class="ctx-pill">🏉 Match day</span>
+              <span class="ctx-pill">🌐 Japanese → English</span>
+              <span class="ctx-pill">🕔 Departing 5:30 PM</span>
+            </div>
+          </div>
+          <div class="hiroshi-hero-right">
+            <div class="hiroshi-lang-card">
+              <div class="hiroshi-lang-header">
+                <span class="hiroshi-lang-icon">🌐</span>
+                <div>
+                  <span class="hiroshi-lang-label">Live translation active</span>
+                  <span class="hiroshi-lang-pair">Japanese → English</span>
+                </div>
+                <span class="tag tag-teal" style="margin-left:auto;">Active</span>
+              </div>
+              <!-- Sample translation interaction -->
+              <div class="hiroshi-translation-block">
+                <div class="hiroshi-input-example">
+                  <span class="hiroshi-input-lang">日本語</span>
+                  <p class="hiroshi-input-text">スタジアムまでの行き方と、近くで食事できる場所を教えてください。</p>
+                </div>
+                <div class="hiroshi-output-example">
+                  <span class="hiroshi-output-lang">English</span>
+                  <p class="hiroshi-output-text">"How do I get to the stadium, and where can I eat nearby?"</p>
+                </div>
+              </div>
+              <div class="hiroshi-lang-note">
+                City Connect understood the intent and is responding in English while displaying translated labels where helpful.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue recommendations — reusing existing card style -->
+        <p class="david-assistant-response" style="margin-bottom:1rem;">
+          おすすめのオプション — Here are a few great options near the stadium:
+        </p>
+
+        <div class="david-rec-cards">
+
+          <div class="david-rec-card">
+            <div class="david-rec-top">
+              <div class="david-rec-icon">🍜</div>
+              <div class="david-rec-venue">
+                <strong>Wagaya Japanese Restaurant</strong>
+                <span class="david-rec-distance">8 min walk · Fortitude Valley</span>
+              </div>
+              <div class="david-rec-tags">
+                <span class="tag tag-blue">Near stadium</span>
+                <span class="tag tag-green">Easy transport</span>
+              </div>
+            </div>
+            <p class="david-rec-desc">Authentic Japanese cuisine — familiar flavours ahead of the match. Staff speak Japanese. Step-free entry. Popular with Japanese visitors.</p>
+            <p class="hiroshi-translated-hint">Japanese spoken · スタッフが日本語対応</p>
+          </div>
+
+          <div class="david-rec-card">
+            <div class="david-rec-top">
+              <div class="david-rec-icon">🥩</div>
+              <div class="david-rec-venue">
+                <strong>The Milton Social</strong>
+                <span class="david-rec-distance">6 min walk · Milton</span>
+              </div>
+              <div class="david-rec-tags">
+                <span class="tag tag-teal">Accessible</span>
+                <span class="tag tag-green">Near transport</span>
+              </div>
+            </div>
+            <p class="david-rec-desc">Relaxed pre-match venue, one block from Milton Station. Menu available in Japanese on request. Group-friendly seating.</p>
+            <p class="hiroshi-translated-hint">Menu in Japanese available · 日本語メニューあり</p>
+          </div>
+
+          <div class="david-rec-card">
+            <div class="david-rec-top">
+              <div class="david-rec-icon">🌿</div>
+              <div class="david-rec-venue">
+                <strong>South Bank Parklands</strong>
+                <span class="david-rec-distance">10 min walk · South Bank</span>
+              </div>
+              <div class="david-rec-tags">
+                <span class="tag tag-blue">Near stadium</span>
+                <span class="tag tag-teal">Accessible</span>
+              </div>
+            </div>
+            <p class="david-rec-desc">Open riverside precinct with food stalls and cafés. Accessible paths throughout. Popular before major events. Signage in multiple languages.</p>
+            <p class="hiroshi-translated-hint">Multilingual signage · 多言語案内あり</p>
+          </div>
+
+        </div><!-- /rec cards -->
+
+        <div class="david-intel-note" style="margin-bottom:1.5rem;">
+          <span class="david-intel-dot">✦</span>
+          Personalised for international visitors — language, transport, and venue guidance in one place
+        </div>
+
+        <div class="hiroshi-back-row">
+          <button class="btn-david-back" onclick="toggleVisitorView()">← Back to David's journey</button>
+        </div>
+
+      </div><!-- /hiroshiPanel -->
+
+      <!-- ── Hero — David (hidden when visitor view is active) ── -->
+      <div id="davidMainContent">
+
+      <!-- ── Hero ── -->
+      <div class="david-hero">
+        <div class="david-hero-left">
+          <div class="david-persona-chip">
+            <span class="persona-avatar">👤</span>
+            <div>
+              <span class="persona-name">David</span>
+              <span class="persona-detail">Brisbane resident · Wheelchair user · Nudgee</span>
+            </div>
+          </div>
+          <h2 class="david-hero-title">Heading to the Rugby World Cup?<br>We've got you.</h2>
+          <p class="david-hero-sub">
+            City Connect has combined your location, accessibility profile, transport conditions,
+            and tonight's event — so you don't have to search for anything.
+          </p>
+          <div class="david-context-pills">
+            <span class="ctx-pill">📍 Nudgee</span>
+            <span class="ctx-pill">♿ Accessible route</span>
+            <span class="ctx-pill">🏉 Match day</span>
+            <span class="ctx-pill">🕔 Departing 5:30 PM</span>
+          </div>
+        </div>
+        <div class="david-hero-right">
+          <div class="david-diff-panel">
+            <div class="diff-row diff-before">
+              <span class="diff-icon">✕</span>
+              <span>Search multiple apps for accessible transport</span>
+            </div>
+            <div class="diff-row diff-before">
+              <span class="diff-icon">✕</span>
+              <span>Manually check event entry and facilities</span>
+            </div>
+            <div class="diff-row diff-before">
+              <span class="diff-icon">✕</span>
+              <span>No proactive crowd or congestion warnings</span>
+            </div>
+            <div class="diff-divider">City Connect changes this</div>
+            <div class="diff-row diff-after">
+              <span class="diff-icon">✓</span>
+              <span>One coordinated, accessible journey plan</span>
+            </div>
+            <div class="diff-row diff-after">
+              <span class="diff-icon">✓</span>
+              <span>Event entry, gate, and facilities surfaced automatically</span>
+            </div>
+            <div class="diff-row diff-after">
+              <span class="diff-icon">✓</span>
+              <span>Live updates pushed — David is informed, not searching</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Intent selector ── -->
+      <div class="david-intent-selector" id="davidIntentSelector">
+        <p class="david-intent-question">What would you like to do today?</p>
+        <div class="david-intent-options">
+          <div class="david-intent-card" onclick="davidChoose('direct')">
+            <span class="david-intent-icon">🏉</span>
+            <div class="david-intent-card-body">
+              <strong>Go straight to the match</strong>
+              <span>Show my journey, event details and live updates</span>
+            </div>
+            <span class="david-intent-arrow">→</span>
+          </div>
+          <div class="david-intent-card" onclick="davidChoose('explore')">
+            <span class="david-intent-icon">🗺️</span>
+            <div class="david-intent-card-body">
+              <strong>Do something on the way</strong>
+              <span>Find accessible options near the stadium</span>
+            </div>
+            <span class="david-intent-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Conversational assistant panel ── -->
+      <div class="david-assistant-panel" id="davidAssistantPanel" style="display:none;">
+
+        <button class="btn-david-back" onclick="davidBack()">← Back</button>
+
+        <div class="david-assistant-prompt">
+          <p class="david-assistant-heading">Let's plan your journey.</p>
+          <p class="david-assistant-sub">What would you like to do on the way?</p>
+        </div>
+
+        <div class="david-assistant-input-row">
+          <input
+            type="text"
+            id="davidIntentInput"
+            class="david-intent-input"
+            value="I want to meet my friends somewhere accessible within 10 minutes of the stadium where we can get lunch"
+            placeholder="Type what you're looking for…"
+            aria-label="Describe what you're looking for"
+          />
+          <button class="btn-david-find" id="davidFindBtn" onclick="davidFindOptions()">Find options</button>
+        </div>
+
+        <!-- Results — shown after search -->
+        <div id="davidAssistantResults" style="display:none;">
+
+          <p class="david-assistant-response">Got it — here are a few great options that match your needs:</p>
+
+          <div class="david-rec-cards">
+
+            <div class="david-rec-card" onclick="davidSelectVenue(this, 'Racecourse Road Kitchen', '(07) 3844 0000')">
+              <div class="david-rec-top">
+                <div class="david-rec-icon">🍽️</div>
+                <div class="david-rec-venue">
+                  <strong>Racecourse Road Kitchen</strong>
+                  <span class="david-rec-distance">8 min walk · Ascot</span>
+                </div>
+                <div class="david-rec-tags">
+                  <span class="tag tag-teal">Accessible</span>
+                  <span class="tag tag-blue">Along your route</span>
+                </div>
+              </div>
+              <p class="david-rec-desc">Relaxed all-day dining with step-free entry and accessible seating throughout. Popular for pre-event lunches. Booking recommended on match days.</p>
+              <span class="david-rec-select-hint">Tap to select →</span>
+            </div>
+
+            <div class="david-rec-card" onclick="davidSelectVenue(this, 'The Milton Social', '(07) 3369 0000')">
+              <div class="david-rec-top">
+                <div class="david-rec-icon">☕</div>
+                <div class="david-rec-venue">
+                  <strong>The Milton Social</strong>
+                  <span class="david-rec-distance">6 min walk · Milton</span>
+                </div>
+                <div class="david-rec-tags">
+                  <span class="tag tag-teal">Accessible</span>
+                  <span class="tag tag-green">Near transport</span>
+                </div>
+              </div>
+              <p class="david-rec-desc">Casual café and bar with level access throughout. Situated one block from Milton Station — easy to reach and continue your journey. Group-friendly seating available.</p>
+              <span class="david-rec-select-hint">Tap to select →</span>
+            </div>
+
+            <div class="david-rec-card" onclick="davidSelectVenue(this, 'South Bank Precinct', '(07) 3867 2051')">
+              <div class="david-rec-top">
+                <div class="david-rec-icon">🥗</div>
+                <div class="david-rec-venue">
+                  <strong>South Bank Precinct</strong>
+                  <span class="david-rec-distance">10 min walk · South Bank</span>
+                </div>
+                <div class="david-rec-tags">
+                  <span class="tag tag-teal">Accessible</span>
+                  <span class="tag tag-blue">Along your route</span>
+                  <span class="tag tag-green">Near transport</span>
+                </div>
+              </div>
+              <p class="david-rec-desc">Multiple accessible dining options in a connected precinct. Flat footpaths, accessible ferries nearby. Variety of cuisines to suit the group.</p>
+              <span class="david-rec-select-hint">Tap to select →</span>
+            </div>
+
+          </div><!-- /david-rec-cards -->
+
+          <div class="david-intel-note">
+            <span class="david-intel-dot">✦</span>
+            Optimised for accessibility and minimal detour
+          </div>
+
+          <!-- ── Venue next-actions — shown when a card is selected ── -->
+          <div id="davidVenueActions" style="display:none;">
+
+            <div class="david-venue-selected-bar">
+              <span class="david-venue-selected-icon">✓</span>
+              <div>
+                <span class="david-venue-selected-label">Selected</span>
+                <strong id="davidSelectedVenueName"></strong>
+              </div>
+              <button class="btn-david-back" style="margin:0 0 0 auto;" onclick="davidBackToRecs()">Change</button>
+            </div>
+
+            <p class="david-next-question">Great choice. What would you like to do next?</p>
+
+            <div class="david-next-actions">
+              <button class="david-next-btn" onclick="davidVenueAction('share')">
+                <span>👥</span> Share with friends
+              </button>
+              <button class="david-next-btn" onclick="davidVenueAction('access')">
+                <span>♿</span> Check accessibility details
+              </button>
+              <button class="david-next-btn" onclick="davidVenueAction('book')">
+                <span>📅</span> Book a table
+              </button>
+            </div>
+
+            <!-- Share sub-panel -->
+            <div id="davidSharePanel" class="david-action-subpanel" style="display:none;">
+              <button class="btn-david-back" onclick="davidBackToActions()">← Back</button>
+              <div class="david-share-card">
+                <div class="david-share-header">
+                  <span class="david-share-icon">👥</span>
+                  <div>
+                    <strong id="davidShareVenueName"></strong>
+                    <span class="david-share-subtitle">Share this plan with your group</span>
+                  </div>
+                </div>
+                <div class="david-share-details">
+                  <div class="david-share-row">
+                    <span class="david-share-label">Venue</span>
+                    <span id="davidShareVenueNameDetail"></span>
+                  </div>
+                  <div class="david-share-row">
+                    <span class="david-share-label">Suggested arrival</span>
+                    <span>12:30 PM today</span>
+                  </div>
+                  <div class="david-share-row">
+                    <span class="david-share-label">Getting there</span>
+                    <span>Bus 61 from Roma Street → Milton Station (6 min walk)</span>
+                  </div>
+                  <div class="david-share-row">
+                    <span class="david-share-label">Accessibility</span>
+                    <span class="david-share-confirmed">✓ Confirmed step-free</span>
+                  </div>
+                </div>
+                <div class="david-share-btns">
+                  <button class="btn-david-secondary" onclick="davidCopyLink()">
+                    <span id="davidCopyLabel">Copy link</span>
+                  </button>
+                  <button class="btn-biz-primary" onclick="davidSendShare()">
+                    <span id="davidSendLabel">Send to group</span>
+                  </button>
+                </div>
+              </div>
+            </div><!-- /davidSharePanel -->
+
+            <!-- Accessibility details sub-panel -->
+            <div id="davidAccessPanel" class="david-action-subpanel" style="display:none;">
+              <button class="btn-david-back" onclick="davidBackToActions()">← Back</button>
+              <h4 class="david-action-title">Accessibility details</h4>
+              <ul class="david-access-checklist">
+                <li class="david-access-check">
+                  <span class="david-access-check-dot"></span>
+                  Ground floor access confirmed
+                </li>
+                <li class="david-access-check">
+                  <span class="david-access-check-dot"></span>
+                  Step-free entry from street
+                </li>
+                <li class="david-access-check">
+                  <span class="david-access-check-dot"></span>
+                  Accessible seating throughout
+                </li>
+                <li class="david-access-check">
+                  <span class="david-access-check-dot"></span>
+                  Accessible toilet 40 m from entrance
+                </li>
+              </ul>
+              <div class="david-intel-note" style="margin-top:1rem;">
+                <span class="david-intel-dot">✦</span>
+                Accessibility details verified for this journey
+              </div>
+            </div><!-- /davidAccessPanel -->
+
+            <!-- Booking sub-panel -->
+            <div id="davidBookPanel" class="david-action-subpanel" style="display:none;">
+              <button class="btn-david-back" onclick="davidBackToActions()">← Back</button>
+              <h4 class="david-action-title">Book a table</h4>
+              <p class="david-book-sub">Contact the venue directly or book online.</p>
+              <div class="david-book-options">
+                <div class="david-book-phone">
+                  <span class="david-book-phone-icon">📞</span>
+                  <div>
+                    <span class="david-book-phone-label">Venue phone</span>
+                    <strong id="davidBookPhone"></strong>
+                  </div>
+                </div>
+                <div class="david-book-btns">
+                  <button class="btn-biz-primary" onclick="davidCallVenue()">Call venue</button>
+                  <button class="btn-david-secondary" onclick="davidBookOnline()">Book online</button>
+                </div>
+              </div>
+              <div class="david-book-note">
+                <span>ℹ</span>
+                Accessible seating can be requested when booking
+              </div>
+            </div><!-- /davidBookPanel -->
+
+          </div><!-- /davidVenueActions -->
+
+        </div><!-- /davidAssistantResults -->
+
+      </div><!-- /davidAssistantPanel -->
+
+      <!-- ── Dashboard (shown for "Go straight to match") ── -->
+      <div id="davidDashboard" style="display:none;">
+
+        <div class="david-dashboard">
+
+          <!-- Card 1: Journey -->
+          <div class="david-card david-card--journey">
+            <div class="david-card-header">
+              <span class="david-card-icon">🗺️</span>
+              <div>
+                <h3 class="david-card-title">Your journey</h3>
+                <p class="david-card-subtitle">Nudgee → Suncorp Stadium</p>
+              </div>
+              <span class="tag tag-green david-card-tag">Accessible route</span>
+            </div>
+            <div class="journey-steps">
+              <div class="journey-step">
+                <span class="journey-dot journey-dot--start"></span>
+                <div class="journey-step-body">
+                  <strong>Nudgee Station</strong>
+                  <span class="journey-time">Depart 5:30 PM — Platform 1 (lift available)</span>
+                </div>
+                <span class="tag tag-green">On time</span>
+              </div>
+              <div class="journey-line"></div>
+              <div class="journey-step">
+                <span class="journey-dot"></span>
+                <div class="journey-step-body">
+                  <strong>Roma Street Station</strong>
+                  <span class="journey-time">Arrive 5:52 PM — Change to Bus 61 (low-floor)</span>
+                </div>
+                <span class="tag tag-green">On time</span>
+              </div>
+              <div class="journey-line"></div>
+              <div class="journey-step">
+                <span class="journey-dot journey-dot--end"></span>
+                <div class="journey-step-body">
+                  <strong>Suncorp Stadium — Milton Rd stop</strong>
+                  <span class="journey-time">Arrive 6:10 PM — 50 min before kick-off</span>
+                </div>
+                <span class="tag tag-blue">Recommended</span>
+              </div>
+            </div>
+            <div class="journey-summary">
+              <span>⏱ Total: 40 min</span>
+              <span>♿ Fully accessible</span>
+              <span>🎟 Arrive by 6:15 PM recommended</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Event -->
+          <div class="david-card">
+            <div class="david-card-header">
+              <span class="david-card-icon">🏉</span>
+              <div>
+                <h3 class="david-card-title">Tonight's match</h3>
+                <p class="david-card-subtitle">Rugby World Cup 2027</p>
+              </div>
+              <span class="tag tag-amber david-card-tag">Tonight</span>
+            </div>
+            <div class="event-details">
+              <div class="event-row">
+                <span class="event-label">Match</span>
+                <span class="event-value">[Match name placeholder]</span>
+              </div>
+              <div class="event-row">
+                <span class="event-label">Kick-off</span>
+                <span class="event-value">7:00 PM</span>
+              </div>
+              <div class="event-row">
+                <span class="event-label">Suggested arrival</span>
+                <span class="event-value">6:15 PM (gates open 5:45 PM)</span>
+              </div>
+              <div class="event-row">
+                <span class="event-label">Your gate</span>
+                <span class="event-value event-value--highlight">Gate D — Accessible Entry · Milton Rd end</span>
+              </div>
+              <div class="event-row">
+                <span class="event-label">Seat</span>
+                <span class="event-value">[Seat number placeholder]</span>
+              </div>
+            </div>
+            <div class="attribution-ribbon" style="margin-top:0.8rem;">
+              Connected to: <strong>Rugby Australia</strong> · <strong>Ticketek</strong> · <strong>Venue Access Guide</strong>
+            </div>
+          </div>
+
+          <!-- Card 3: Accessibility -->
+          <div class="david-card">
+            <div class="david-card-header">
+              <span class="david-card-icon">♿</span>
+              <div>
+                <h3 class="david-card-title">Accessibility</h3>
+                <p class="david-card-subtitle">Your route and venue facilities</p>
+              </div>
+              <span class="tag tag-teal david-card-tag">Confirmed</span>
+            </div>
+            <ul class="access-list">
+              <li class="access-item access-ok">
+                <span class="access-dot access-dot--ok"></span>
+                <div>
+                  <strong>Step-free route end-to-end</strong>
+                  <span>Train, bus, and stadium entry all wheelchair accessible</span>
+                </div>
+              </li>
+              <li class="access-item access-ok">
+                <span class="access-dot access-dot--ok"></span>
+                <div>
+                  <strong>Lift confirmed at Roma Street</strong>
+                  <span>Platform 3 lift operational — last checked 4:45 PM</span>
+                </div>
+              </li>
+              <li class="access-item access-ok">
+                <span class="access-dot access-dot--ok"></span>
+                <div>
+                  <strong>Gate D ramp entry</strong>
+                  <span>No steps. Accessible seating zone adjacent to entry.</span>
+                </div>
+              </li>
+              <li class="access-item access-note">
+                <span class="access-dot access-dot--note"></span>
+                <div>
+                  <strong>Accessible toilets — Section 12, near Gate D</strong>
+                  <span>Also available at Roma Street Station (Level 1)</span>
+                </div>
+              </li>
+            </ul>
+            <div class="attribution-ribbon" style="margin-top:0.8rem;">
+              Connected to: <strong>TransLink Accessibility</strong> · <strong>Venue Access Guide</strong>
+            </div>
+          </div>
+
+          <!-- Card 4: Live city updates -->
+          <div class="david-card">
+            <div class="david-card-header">
+              <span class="david-card-icon">📡</span>
+              <div>
+                <h3 class="david-card-title">Live city updates</h3>
+                <p class="david-card-subtitle">Right now · Auto-refreshing</p>
+              </div>
+              <span class="tag tag-amber david-card-tag">1 notice</span>
+            </div>
+            <div class="live-updates">
+              <div class="live-update live-update--amber">
+                <span class="live-update-icon">⚠️</span>
+                <div>
+                  <strong>Crowd build-up expected near Gate B &amp; C</strong>
+                  <p>Pedestrian flow heavy from 6:00 PM. Gate D (your gate) remains clear. No action needed.</p>
+                </div>
+              </div>
+              <div class="live-update live-update--green">
+                <span class="live-update-icon">🚌</span>
+                <div>
+                  <strong>Extra services added post-match</strong>
+                  <p>TransLink running additional low-floor buses from Milton Rd at 9:15 PM, 9:35 PM, and 10:00 PM.</p>
+                </div>
+              </div>
+              <div class="live-update live-update--blue">
+                <span class="live-update-icon">🙋</span>
+                <div>
+                  <strong>Accessibility support on-site</strong>
+                  <p>Stadium accessibility officers stationed at Gate D from 5:45 PM. Venue helpline: 07 3331 5000.</p>
+                </div>
+              </div>
+            </div>
+            <div class="attribution-ribbon" style="margin-top:0.8rem;">
+              Connected to: <strong>BCC Live</strong> · <strong>TransLink</strong> · <strong>QPS Event Operations</strong>
+            </div>
+          </div>
+
+        </div><!-- /david-dashboard grid -->
+
+        <!-- ── Report issue contextual prompt ── -->
+        <div class="david-report-prompt" id="davidReportPrompt">
+          <span class="david-report-prompt-icon">🚧</span>
+          <span class="david-report-prompt-text">Notice something on your journey?</span>
+          <button class="btn-david-report" onclick="davidShowReport()">Report an issue</button>
+        </div>
+
+        <!-- Report issue form -->
+        <div class="david-report-panel" id="davidReportPanel" style="display:none;">
+          <div class="david-report-panel-header">
+            <div>
+              <p class="david-report-title">Report an issue</p>
+              <p class="david-report-sub">This will be sent directly to Brisbane City Council.</p>
+            </div>
+            <button class="btn-david-back" onclick="davidHideReport()">← Cancel</button>
+          </div>
+          <div class="david-report-fields">
+            <div class="david-report-field">
+              <label class="david-report-label">Location (auto-filled)</label>
+              <input type="text" class="david-report-value" value="Corner Roma Street &amp; Herschel St, Brisbane CBD" readonly />
+            </div>
+            <div class="david-report-field">
+              <label class="david-report-label">Issue type</label>
+              <select class="david-report-value">
+                <option>Footpath obstruction — wheelchair access affected</option>
+                <option>Broken footpath surface</option>
+                <option>Lift not operational</option>
+                <option>Ramp access blocked</option>
+              </select>
+            </div>
+            <div class="david-report-field">
+              <label class="david-report-label">Notes (optional)</label>
+              <input type="text" class="david-report-value" placeholder="Describe what you saw…" />
+            </div>
+            <div class="david-report-field">
+              <label class="david-report-label">Photo (optional)</label>
+              <div class="david-report-photo-placeholder">
+                <span>📷</span> Tap to add a photo
+              </div>
+            </div>
+          </div>
+          <div class="david-report-actions">
+            <button class="btn-david-back" onclick="davidHideReport()">Cancel</button>
+            <button class="btn-biz-primary" onclick="davidSubmitReport()">Submit report</button>
+          </div>
+        </div><!-- /davidReportPanel -->
+
+        <!-- Report confirmation + route update -->
+        <div id="davidReportConfirm" style="display:none;">
+          <div class="david-report-confirm">
+            <div class="david-confirm-header">
+              <span class="david-confirm-icon">✅</span>
+              <div>
+                <p class="david-confirm-title">Thank you — this has been reported.</p>
+                <p class="david-confirm-sub">Brisbane City Council has received your report and will review it shortly.</p>
+              </div>
+            </div>
+          </div>
+          <div class="david-route-update">
+            <span class="david-route-update-icon">🗺️</span>
+            <div class="david-route-update-body">
+              <strong>Nearby alternative route suggested</strong>
+              <p>Your journey has been updated to avoid Roma Street &amp; Herschel St. New route adds 2 minutes — all segments remain fully accessible.</p>
+            </div>
+          </div>
+        </div><!-- /davidReportConfirm -->
+
+        <!-- Quick actions -->
+        <div class="david-actions-row">
+          <div class="david-action-chip" onclick="goTo(4)">
+            <span>🚌</span> Transport
+          </div>
+          <div class="david-action-chip">
+            <span>🏉</span> Event info
+          </div>
+          <div class="david-action-chip">
+            <span>♿</span> Accessibility support
+          </div>
+          <div class="david-action-chip david-action-chip--alert">
+            <span>🚨</span> Emergency help
+          </div>
+        </div>
+
+        <div class="david-back-to-intent">
+          <button class="btn-david-back" onclick="davidBack()">← Change my plans</button>
+        </div>
+
+      </div><!-- /davidDashboard -->
+
+      </div><!-- /davidMainContent -->
+
+      <!-- ── Scene navigation buttons ── -->
+      <div class="scene-nav-row">
+        <button class="btn-scene-nav btn-scene-back" onclick="goTo(0)">
+          ← Back to Current State
+        </button>
+        <button class="btn-cta" onclick="goTo(2)">
+          How the ecosystem joins City Connect &nbsp;→
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 3: Business Onboarding
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-business" data-label="Joining City Connect">
+
+      <div class="scene-tag">Scene 3 — A simpler way to join</div>
+
+      <!-- ── Page header ── -->
+      <div class="biz-page-header">
+        <div>
+          <h2 class="scene-title">A simpler way for businesses and city partners to join</h2>
+          <p class="scene-context biz-page-sub">
+            City Connect reduces friction for local businesses, venues, and event operators
+            to become part of the city experience — using data that already exists.
+          </p>
+        </div>
+        <div class="biz-trust-note">
+          <span class="biz-trust-icon">🔒</span>
+          <span>Using trusted business records to prefill details.<br>Only confirm what is missing.</span>
+        </div>
+      </div>
+
+      <!-- ── Step progress bar ── -->
+      <div class="biz-steps" id="bizSteps">
+        <div class="biz-step biz-step--active" id="bizStep1">
+          <span class="biz-step-num">1</span>
+          <span class="biz-step-label">Find your business</span>
+        </div>
+        <div class="biz-step-connector"></div>
+        <div class="biz-step" id="bizStep2">
+          <span class="biz-step-num">2</span>
+          <span class="biz-step-label">Confirm and complete</span>
+        </div>
+        <div class="biz-step-connector"></div>
+        <div class="biz-step" id="bizStep3">
+          <span class="biz-step-num">3</span>
+          <span class="biz-step-label">Activate</span>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           STEP 1 — Find your business
+      ══════════════════════════════════════ -->
+      <div class="biz-panel" id="bizPanel1">
+
+        <h3 class="biz-panel-title">Find your business</h3>
+        <p class="biz-panel-desc">
+          Enter your business name or ABN. We'll check against the Australian Business Register
+          and existing Brisbane City Council records to prefill your profile.
+        </p>
+
+        <div class="biz-search-row">
+          <input
+            class="biz-input"
+            type="text"
+            id="bizSearchInput"
+            value="West End Coffee Roasters"
+            placeholder="Business name or ABN…"
+            aria-label="Search for your business"
+          />
+          <button class="btn-biz-search" onclick="bizSearch()">Find my business</button>
+        </div>
+
+        <!-- Found card — shown after search -->
+        <div class="biz-found-card" id="bizFoundCard" style="display:none;">
+          <div class="biz-found-header">
+            <span class="biz-found-icon">🏪</span>
+            <div>
+              <span class="biz-found-label">Business found</span>
+              <h4 class="biz-found-name">West End Coffee Roasters</h4>
+            </div>
+            <span class="tag tag-green biz-found-tag">ABR · Active</span>
+          </div>
+          <div class="biz-found-fields">
+            <div class="biz-field biz-field--prefilled">
+              <span class="biz-field-label">Business name</span>
+              <span class="biz-field-value">West End Coffee Roasters Pty Ltd</span>
+              <span class="biz-prefill-badge">Prefilled</span>
+            </div>
+            <div class="biz-field biz-field--prefilled">
+              <span class="biz-field-label">ABN</span>
+              <span class="biz-field-value">51 234 567 890</span>
+              <span class="biz-prefill-badge">Prefilled</span>
+            </div>
+            <div class="biz-field biz-field--prefilled">
+              <span class="biz-field-label">Business status</span>
+              <span class="biz-field-value">
+                <span class="tag tag-green" style="vertical-align:middle;">Active</span>
+              </span>
+              <span class="biz-prefill-badge">Prefilled</span>
+            </div>
+            <div class="biz-field biz-field--prefilled">
+              <span class="biz-field-label">Location</span>
+              <span class="biz-field-value">142 Boundary St, West End QLD 4101</span>
+              <span class="biz-prefill-badge">Prefilled</span>
+            </div>
+            <div class="biz-field biz-field--prefilled">
+              <span class="biz-field-label">Category</span>
+              <span class="biz-field-value">Café &amp; Coffee Roaster — Food &amp; Beverage</span>
+              <span class="biz-prefill-badge">Prefilled</span>
+            </div>
+          </div>
+          <p class="biz-found-note">
+            Is this your business? Claim it to continue. No new account required if you have a myGovID or BCC login.
+          </p>
+          <button class="btn-biz-primary" onclick="bizGoStep(2)">
+            Yes, this is my business — continue →
+          </button>
+        </div>
+
+      </div><!-- /bizPanel1 -->
+
+
+      <!-- ══════════════════════════════════════
+           STEP 2 — Confirm and complete
+      ══════════════════════════════════════ -->
+      <div class="biz-panel" id="bizPanel2" style="display:none;">
+
+        <h3 class="biz-panel-title">Complete your profile</h3>
+        <p class="biz-panel-desc">
+          Your business details are already filled in. We just need a few extra pieces of information
+          to make you discoverable through City Connect — this takes about two minutes.
+        </p>
+
+        <div class="biz-complete-grid">
+
+          <div class="biz-complete-field">
+            <label class="biz-complete-label">Opening hours</label>
+            <select class="biz-select">
+              <option>Mon–Fri 6:30 AM – 4:00 PM, Sat–Sun 7:00 AM – 3:00 PM</option>
+            </select>
+          </div>
+
+          <div class="biz-complete-field">
+            <label class="biz-complete-label">Accessibility features</label>
+            <div class="biz-checkbox-group">
+              <label class="biz-checkbox-label"><input type="checkbox" checked /> Step-free entry</label>
+              <label class="biz-checkbox-label"><input type="checkbox" checked /> Accessible seating</label>
+              <label class="biz-checkbox-label"><input type="checkbox" /> Accessible toilet on-site</label>
+              <label class="biz-checkbox-label"><input type="checkbox" checked /> Pram/wheelchair friendly</label>
+            </div>
+          </div>
+
+          <div class="biz-complete-field">
+            <label class="biz-complete-label">Special event participation</label>
+            <div class="biz-checkbox-group">
+              <label class="biz-checkbox-label"><input type="checkbox" checked /> Show in nearby event discovery</label>
+              <label class="biz-checkbox-label"><input type="checkbox" checked /> Appear in match-day recommendations</label>
+              <label class="biz-checkbox-label"><input type="checkbox" /> Accept event-day extended trading flag</label>
+            </div>
+          </div>
+
+          <div class="biz-complete-field">
+            <label class="biz-complete-label">Contact preference for City Connect</label>
+            <select class="biz-select">
+              <option>Email — operator@westendcoffeeroasters.com.au</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="biz-step2-actions">
+          <button class="btn-scene-nav" onclick="bizGoStep(1)">← Back</button>
+          <button class="btn-biz-primary" onclick="bizGoStep(3)">Confirm and activate →</button>
+        </div>
+
+      </div><!-- /bizPanel2 -->
+
+
+      <!-- ══════════════════════════════════════
+           STEP 3 — Activated / result state
+      ══════════════════════════════════════ -->
+      <div class="biz-panel" id="bizPanel3" style="display:none;">
+
+        <div class="biz-activated">
+          <div class="biz-activated-icon">✅</div>
+          <h3 class="biz-activated-title">West End Coffee Roasters is now part of City Connect</h3>
+          <p class="biz-activated-sub">
+            Faster activation for businesses and venues — your profile was confirmed, not re-entered.
+          </p>
+        </div>
+
+        <div class="biz-result-grid">
+          <div class="biz-result-item">
+            <span class="biz-result-icon">🗺️</span>
+            <div>
+              <strong>Visible in nearby journeys</strong>
+              <p>Residents and visitors within 1 km will see West End Coffee Roasters as a nearby option.</p>
+            </div>
+          </div>
+          <div class="biz-result-item">
+            <span class="biz-result-icon">🏉</span>
+            <div>
+              <strong>Available for event-related discovery</strong>
+              <p>Surfaced in pre- and post-event recommendations for nearby stadiums and precincts.</p>
+            </div>
+          </div>
+          <div class="biz-result-item">
+            <span class="biz-result-icon">♿</span>
+            <div>
+              <strong>Included in accessibility-aware recommendations</strong>
+              <p>Step-free entry and accessible seating flagged automatically for relevant users.</p>
+            </div>
+          </div>
+          <div class="biz-result-item">
+            <span class="biz-result-icon">🌆</span>
+            <div>
+              <strong>Connected to city moments</strong>
+              <p>City Connect can surface your business during relevant city events, campaigns, and local searches.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="biz-concept-note">
+          This is a conceptual design pattern — not a live production feature.
+          City Connect would integrate with existing registration and compliance frameworks.
+        </div>
+
+        <div class="biz-step3-actions">
+          <button class="btn-scene-nav" onclick="bizGoStep(2)">← Back</button>
+          <button class="btn-biz-primary" onclick="bizReset()">↺ Start again</button>
+        </div>
+
+      </div><!-- /bizPanel3 -->
+
+      <!-- ── Scene navigation buttons ── -->
+      <div class="scene-nav-row" style="margin-top:1.8rem;">
+        <button class="btn-scene-nav btn-scene-back" onclick="goTo(1)">
+          ← Back to David's journey
+        </button>
+        <button class="btn-cta" onclick="goTo(3)">
+          Return to overview &nbsp;→
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 4: Welcome / Concept Overview (was Scene 3)
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-welcome" data-label="Concept Overview">
+
+      <div class="scene-tag">Concept Overview</div>
+
+      <div class="welcome-hero">
+        <div class="welcome-hero-text">
+          <h1 class="welcome-title">Brisbane City Connect</h1>
+          <p class="welcome-tagline">
+            A smart experience and innovation layer that connects residents
+            to the right city services, at the right time — sitting alongside
+            Brisbane's existing channels, not replacing them.
+          </p>
+          <ul class="welcome-pillars">
+            <li><span class="pillar-dot blue"></span>Contextual</li>
+            <li><span class="pillar-dot yellow"></span>Coordinated</li>
+            <li><span class="pillar-dot teal"></span>Intelligent</li>
+            <li><span class="pillar-dot green"></span>Inclusive</li>
+          </ul>
+        </div>
+
+        <div class="welcome-search-block">
+          <p class="search-label">What can we help you with today?</p>
+          <div class="search-bar">
+            <input type="text" placeholder="Search services, events, locations…" aria-label="Search" />
+            <button class="btn-search">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-preview-grid">
+        <div class="preview-tile" onclick="goTo(4)">
+          <span class="tile-icon">🚌</span>
+          <span class="tile-label">Transport</span>
+        </div>
+        <div class="preview-tile" onclick="goTo(5)">
+          <span class="tile-icon">🎉</span>
+          <span class="tile-label">Events</span>
+        </div>
+        <div class="preview-tile" onclick="goTo(6)">
+          <span class="tile-icon">🏛️</span>
+          <span class="tile-label">City Services</span>
+        </div>
+        <div class="preview-tile emergency" onclick="goTo(7)">
+          <span class="tile-icon">🚨</span>
+          <span class="tile-label">Emergency</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 2: Transport
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-transport" data-label="Transport">
+
+      <div class="scene-tag">Transport</div>
+
+      <div class="scene-header">
+        <div>
+          <h2 class="scene-title">Your commute, right now</h2>
+          <p class="scene-context">Monday · 5:15 PM · Near CBD — South Brisbane corridor</p>
+        </div>
+        <span class="context-pill">📍 Location-aware</span>
+      </div>
+
+      <div class="card-grid">
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🚌</span>
+            <div class="card-head">
+              <h3>Bus Route 333 — City to Indooroopilly</h3>
+              <span class="tag tag-green">On time</span>
+            </div>
+          </div>
+          <p class="card-detail">Next departure in 4 min from Stop 12, Adelaide St. Runs every 10 minutes on weekdays.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🚂</span>
+            <div class="card-head">
+              <h3>Toowong Train Station — Ipswich Line</h3>
+              <span class="tag tag-amber">Minor delay</span>
+            </div>
+          </div>
+          <p class="card-detail">Next city-bound train: 5:47 PM. Track works near Milton adding ~6 minutes.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">⛵</span>
+            <div class="card-head">
+              <h3>CityCat — North Quay Terminal</h3>
+              <span class="tag tag-green">On time</span>
+            </div>
+          </div>
+          <p class="card-detail">Next ferry to Bulimba: 5:35 PM. Capacity 60%. Cool breeze on the river today.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🚲</span>
+            <div class="card-head">
+              <h3>CityCycle Bikes — King George Square</h3>
+              <span class="tag tag-blue">Available</span>
+            </div>
+          </div>
+          <p class="card-detail">14 bikes ready. Nearest dock: 120 m away. Day pass $3.30 — tap to unlock.</p>
+        </div>
+
+      </div>
+
+      <div class="attribution-ribbon">
+        Connected to: <strong>TransLink</strong> · <strong>BCC Live</strong> · <strong>CityCycle</strong>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 3: Events & Community
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-events" data-label="Events &amp; Community">
+
+      <div class="scene-tag">Events &amp; Community</div>
+
+      <div class="scene-header">
+        <div>
+          <h2 class="scene-title">What's on near you this week</h2>
+          <p class="scene-context">Personalised for South Brisbane · 2–8 June 2026</p>
+        </div>
+        <span class="context-pill">🗓️ This week</span>
+      </div>
+
+      <div class="card-grid">
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🎨</span>
+            <div class="card-head">
+              <h3>Brisbane Art Bazaar</h3>
+              <span class="tag tag-yellow">Free</span>
+            </div>
+          </div>
+          <p class="card-detail">South Bank Parklands · Sat–Sun, 9 AM – 4 PM. Over 80 local artists and makers.</p>
+          <p class="card-meta">📍 1.2 km away</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🎵</span>
+            <div class="card-head">
+              <h3>Twilight Concert Series</h3>
+              <span class="tag tag-blue">Music</span>
+            </div>
+          </div>
+          <p class="card-detail">Riverstage · Every Friday, gates 5 PM, music 6 PM. Picnic-friendly. Free entry.</p>
+          <p class="card-meta">📍 0.8 km away · This Friday</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🏃</span>
+            <div class="card-head">
+              <h3>Brisbane City Fun Run</h3>
+              <span class="tag tag-yellow">Family</span>
+            </div>
+          </div>
+          <p class="card-detail">5 km &amp; 10 km · Sunday 8 June, 7 AM from Victoria Bridge. Registration still open.</p>
+          <p class="card-meta">📍 0.5 km away · Sunday</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🌿</span>
+            <div class="card-head">
+              <h3>Community Garden Day</h3>
+              <span class="tag tag-green">Outdoors</span>
+            </div>
+          </div>
+          <p class="card-detail">Toowong Reserve · Sat 8 June, 8 AM – 12 PM. Learn composting and planting. Free.</p>
+          <p class="card-meta">📍 3.1 km away · Saturday</p>
+        </div>
+
+      </div>
+
+      <div class="attribution-ribbon">
+        Connected to: <strong>BCC Events</strong> · <strong>South Bank Corporation</strong> · <strong>What's On Brisbane</strong>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 4: City Services
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-services" data-label="City Services">
+
+      <div class="scene-tag">City Services</div>
+
+      <div class="scene-header">
+        <div>
+          <h2 class="scene-title">Your city services, in one place</h2>
+          <p class="scene-context">Logged in as: Alex Chen · 14 Coronation Dr, Milton</p>
+        </div>
+        <span class="context-pill">👤 Personalised</span>
+      </div>
+
+      <div class="card-grid">
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🗑️</span>
+            <div class="card-head">
+              <h3>Bin &amp; Waste Collection</h3>
+              <span class="tag tag-green">Scheduled</span>
+            </div>
+          </div>
+          <p class="card-detail">General waste: <strong>Thursday 5 June</strong>. Recycling: Thursday 12 June. Green waste: 19 June.</p>
+          <p class="card-meta">Request a bulk rubbish pickup →</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🅿️</span>
+            <div class="card-head">
+              <h3>Resident Parking Permit</h3>
+              <span class="tag tag-amber">Expires soon</span>
+            </div>
+          </div>
+          <p class="card-detail">Your permit expires <strong>30 June 2026</strong>. Renew online — takes 3 minutes. Annual fee: $55.</p>
+          <p class="card-meta">Renew now →</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🌳</span>
+            <div class="card-head">
+              <h3>Park Maintenance Request</h3>
+              <span class="tag tag-blue">Open</span>
+            </div>
+          </div>
+          <p class="card-detail">Your recent report (damaged equipment, Toowong Reserve) is under review. Response within 48 hours.</p>
+          <p class="card-meta">View request status →</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">💧</span>
+            <div class="card-head">
+              <h3>Flood Level — Brisbane River</h3>
+              <span class="tag tag-green">Normal</span>
+            </div>
+          </div>
+          <p class="card-detail">Current gauge: <strong>1.2 m</strong>. No alerts active. Your property is outside the 1-in-100-year flood zone.</p>
+          <p class="card-meta">View flood map →</p>
+        </div>
+
+      </div>
+
+      <div class="attribution-ribbon">
+        Connected to: <strong>BCC Customer Portal</strong> · <strong>Permit System</strong> · <strong>FloodWise</strong>
+      </div>
+
+    </section>
+
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 5: Emergency & Safety
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-emergency" data-label="Emergency &amp; Safety">
+
+      <div class="scene-tag emergency-tag">Emergency &amp; Safety</div>
+
+      <div class="emergency-alert-bar">
+        <span class="alert-icon">🚨</span>
+        <div>
+          <strong>Life-threatening emergency?</strong>
+          Call <strong>000</strong> — Police, Fire, or Ambulance. Available 24 / 7.
+        </div>
+      </div>
+
+      <div class="scene-header">
+        <div>
+          <h2 class="scene-title">Safety information for your area</h2>
+          <p class="scene-context">South Brisbane · All services operating normally · 2 June 2026</p>
+        </div>
+        <span class="context-pill context-pill-green">✅ No active alerts</span>
+      </div>
+
+      <div class="card-grid">
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🌊</span>
+            <div class="card-head">
+              <h3>BCC Flood &amp; Storm Hotline</h3>
+              <span class="tag tag-green">Normal levels</span>
+            </div>
+          </div>
+          <p class="card-detail">Call <strong>1300 69 37 86</strong> for flood and storm emergencies. Check FloodWise for live flood maps and your property's flood level.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🔥</span>
+            <div class="card-head">
+              <h3>QLD Fire &amp; Emergency Services</h3>
+              <span class="tag tag-blue">Non-urgent</span>
+            </div>
+          </div>
+          <p class="card-detail">For non-urgent fire or storm damage, call <strong>132 500</strong>. Do not call 000 for non-life-threatening situations.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">🏥</span>
+            <div class="card-head">
+              <h3>Royal Brisbane &amp; Women's Hospital</h3>
+              <span class="tag tag-blue">24 / 7</span>
+            </div>
+          </div>
+          <p class="card-detail">Butterfield St, Herston — 3.4 km away. ED open 24 / 7. Health advice line: <strong>13 HEALTH</strong> (13 43 25 84).</p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-top">
+            <span class="card-icon">💧</span>
+            <div class="card-head">
+              <h3>Brisbane River Gauge</h3>
+              <span class="tag tag-green">Normal</span>
+            </div>
+          </div>
+          <p class="card-detail">Current level: <strong>1.2 m</strong>. Alert threshold: 2.6 m. No watch or warning issued. Updated every 15 minutes.</p>
+        </div>
+
+      </div>
+
+      <div class="attribution-ribbon">
+        Connected to: <strong>Bureau of Meteorology</strong> · <strong>Queensland Police</strong> · <strong>BCC Emergency</strong>
+      </div>
+
+    </section>
+
+    <!-- ──────────────────────────────────────────────
+         SCENE 9: Vision / Closing
+    ────────────────────────────────────────────── -->
+    <section class="scene" id="scene-vision" data-label="City Connect Vision">
+      <div class="vision-inner">
+
+        <p class="vision-eyebrow">Brisbane City Council &nbsp;·&nbsp; Concept Demo</p>
+
+        <div class="vision-logo-mark">BCC</div>
+
+        <h1 class="vision-title">Brisbane City Connect</h1>
+
+        <p class="vision-statement">
+          A city that works for people —<br>
+          every day, and when it matters most.
+        </p>
+
+        <div class="vision-pillars">
+          <div class="vision-pillar">
+            <span class="vision-pillar-bar"></span>
+            <span class="vision-pillar-text">Connected services</span>
+          </div>
+          <div class="vision-pillar">
+            <span class="vision-pillar-bar"></span>
+            <span class="vision-pillar-text">Context-aware experiences</span>
+          </div>
+          <div class="vision-pillar">
+            <span class="vision-pillar-bar"></span>
+            <span class="vision-pillar-text">Effortless participation</span>
+          </div>
+        </div>
+
+        <p class="vision-subtext">
+          Built on Brisbane's existing platforms —<br>
+          orchestrated into one seamless experience.
+        </p>
+
+        <button class="btn-vision-restart" onclick="goTo(0)">
+          ↺ &nbsp;Restart demo
+        </button>
+
+      </div>
+    </section>
+
+  </main><!-- /scene-container -->
+
+
+  <!-- ====================================================
+       FIXED NAVIGATION BAR
+  ==================================================== -->
+  <nav class="nav-bar" role="navigation" aria-label="Slide navigation">
+    <button class="nav-btn" id="btnPrev" onclick="prev()" aria-label="Previous scene">
+      ← Previous
+    </button>
+    <div class="nav-centre">
+      <span class="nav-scene-label" id="navSceneLabel">Concept Overview</span>
+      <span class="nav-counter" id="navCounter">Scene 1 of 5</span>
+    </div>
+    <button class="nav-btn" id="btnNext" onclick="next()" aria-label="Next scene">
+      Next →
+    </button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

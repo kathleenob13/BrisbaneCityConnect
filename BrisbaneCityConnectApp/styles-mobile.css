@@ -1,0 +1,1148 @@
+/* =====================================================
+   Brisbane City Connect — Mobile Shell Override
+   Loaded after styles.css. Wraps the entire app in
+   a centered phone-shaped container.
+   Do NOT edit styles.css — all overrides live here.
+===================================================== */
+
+
+/* =====================================================
+   PAGE BACKGROUND — dark executive look
+===================================================== */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #0d1f3c 0%, #1b3d72 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: auto;
+  /* Override the original column flex — body is now just the centring wrapper */
+  flex-direction: row;
+}
+
+
+/* =====================================================
+   PHONE SHELL — the centred device frame
+===================================================== */
+.phone-shell {
+  width: 390px;
+  height: min(844px, calc(100vh - 3rem));
+  border-radius: 44px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.09),   /* subtle rim highlight */
+    0 0 0 8px rgba(0, 0, 0, 0.55),          /* dark bezel ring */
+    0 30px 80px rgba(0, 0, 0, 0.55),        /* main drop shadow */
+    0 8px 24px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  background: var(--grey-page);
+  flex-shrink: 0;
+  position: relative;
+}
+
+
+/* =====================================================
+   HEADER — pull out of viewport-fixed positioning
+===================================================== */
+.site-header {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  flex-shrink: 0;
+  /* slightly shorter on mobile */
+  height: 56px;
+}
+
+.header-inner {
+  padding: 0 1.1rem;
+}
+
+/* Hide the long logo text — "BCC" badge alone is enough */
+.logo-text {
+  display: none;
+}
+
+.demo-badge {
+  font-size: 0.58rem;
+  padding: 0.2rem 0.55rem;
+  letter-spacing: 0.1em;
+}
+
+
+/* =====================================================
+   SCENE CONTAINER — becomes the scrollable middle area
+===================================================== */
+.scene-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 48, 135, 0.18) transparent;
+}
+
+.scene-container::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scene-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scene-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 48, 135, 0.18);
+  border-radius: 2px;
+}
+
+
+/* =====================================================
+   NAV BAR — pull out of viewport-fixed positioning
+===================================================== */
+.nav-bar {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  flex-shrink: 0;
+  padding: 0 1rem;
+  height: 60px;
+}
+
+.nav-btn {
+  padding: 0.42rem 0.7rem;
+  font-size: 0.76rem;
+}
+
+.nav-scene-label {
+  font-size: 0.8rem;
+}
+
+.nav-counter {
+  font-size: 0.58rem;
+}
+
+
+/* =====================================================
+   SCENES — no min-height, comfortable padding
+   Extra bottom padding keeps last content clear of nav
+===================================================== */
+.scene {
+  min-height: auto;
+  padding: 1.25rem 1rem 2.5rem;
+}
+
+/* Vision scene: override viewport-based min-height */
+#scene-vision {
+  min-height: 640px;
+}
+
+/* When vision mode is on, tint the phone shell background too */
+body.vision-mode .phone-shell {
+  background: var(--blue-deep);
+}
+
+body.vision-mode .nav-bar {
+  height: 60px;
+}
+
+
+/* =====================================================
+   SCENE TAG — tighter margin
+===================================================== */
+.scene-tag {
+  margin-bottom: 1.1rem;
+}
+
+
+/* =====================================================
+   LAYOUT OVERRIDES — all grids collapse to 1 column
+   (or 2 where appropriate) for ~370px content width
+===================================================== */
+
+/* Scene 1: screenshots → 2 columns */
+.cs-screenshot-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.1rem;
+}
+
+.cs-subheading {
+  font-size: 0.87rem;
+}
+
+.cs-header {
+  margin-bottom: 1.1rem;
+}
+
+/* Scene 4 welcome: single column */
+.welcome-hero {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.welcome-tagline {
+  max-width: 100%;
+  font-size: 0.93rem;
+}
+
+.welcome-title {
+  font-size: 1.7rem;
+}
+
+/* Category tiles: 2×2 */
+.category-preview-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Transport / Events / Services / Emergency card grid: 1 column */
+.card-grid {
+  grid-template-columns: 1fr;
+}
+
+/* Scene 2 David — hero, dashboard, assistant */
+.david-hero {
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+.david-hero-title {
+  font-size: 1.2rem;
+}
+
+.david-dashboard {
+  grid-template-columns: 1fr;
+}
+
+.david-card--journey {
+  grid-column: 1;
+}
+
+.david-intent-options {
+  grid-template-columns: 1fr;
+}
+
+.david-rec-cards {
+  grid-template-columns: 1fr;
+}
+
+/* Journey summary: stack vertically */
+.journey-summary {
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Next-action buttons: full width stack */
+.david-next-actions {
+  flex-direction: column;
+}
+
+.david-next-btn {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+/* Quick action chips */
+.david-actions-row {
+  gap: 0.45rem;
+}
+
+/* Scene nav row: stack the two buttons */
+.scene-nav-row {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.6rem;
+}
+
+.btn-scene-nav,
+.btn-cta {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Share / book button pairs */
+.david-share-btns,
+.david-book-btns {
+  flex-direction: column;
+}
+
+.david-share-btns .btn-biz-primary,
+.david-share-btns .btn-david-secondary,
+.david-book-btns .btn-biz-primary,
+.david-book-btns .btn-david-secondary {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Report actions */
+.david-report-actions {
+  flex-direction: column;
+}
+
+.david-report-actions .btn-biz-primary,
+.david-report-actions .btn-david-back {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Visitor (Hiroshi) hero */
+.hiroshi-hero {
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+.scene2-topbar {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+/* Scene 3 Business */
+.biz-page-header {
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+}
+
+.biz-trust-note {
+  max-width: 100%;
+}
+
+.biz-complete-grid,
+.biz-result-grid {
+  grid-template-columns: 1fr;
+}
+
+.biz-step2-actions,
+.biz-step3-actions {
+  flex-direction: column;
+}
+
+.biz-step2-actions .btn-scene-nav,
+.biz-step2-actions .btn-biz-primary,
+.biz-step3-actions .btn-scene-nav,
+.biz-step3-actions .btn-biz-primary {
+  width: 100%;
+  text-align: center;
+}
+
+.biz-panel {
+  padding: 1.4rem 1.2rem;
+}
+
+/* Biz step labels — hide on very narrow */
+.biz-step-label {
+  display: none;
+}
+
+
+/* =====================================================
+   EMERGENCY ALERT BAR — slightly more compact
+===================================================== */
+.emergency-alert-bar {
+  padding: 0.85rem 1.1rem;
+  font-size: 0.88rem;
+}
+
+
+/* =====================================================
+   SCENE HEADER — tighter on mobile
+===================================================== */
+.scene-header {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.1rem;
+}
+
+.scene-title {
+  font-size: 1.3rem;
+}
+
+
+/* =====================================================
+   LUCIDE ICON SYSTEM
+   All sizing, colour and alignment rules for SVG icons.
+   Lucide renders <i data-lucide="x"> as an inline SVG.
+===================================================== */
+
+/* Base: every Lucide SVG inherits current colour and scales
+   with font-size via em units — no per-icon overrides needed */
+.phone-shell i[data-lucide] {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* ── Card icon containers ── */
+/* info-card and david-card square icon box */
+.phone-shell .card-icon i[data-lucide],
+.phone-shell .david-card-icon i[data-lucide] {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--blue-mid);
+}
+
+/* ── Category tiles on Overview ── */
+.phone-shell .tile-icon i[data-lucide] {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--blue-deep);
+}
+
+.phone-shell .preview-tile.emergency .tile-icon i[data-lucide] {
+  color: var(--red-alert);
+}
+
+/* ── Context pills ── */
+.phone-shell .ctx-pill i[data-lucide],
+.phone-shell .context-pill i[data-lucide] {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.18rem;
+}
+
+/* ── Persona avatar — white icon on dark circle ── */
+.phone-shell .persona-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-shell .persona-avatar i[data-lucide] {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--white);
+}
+
+/* ── Intent selector icons ── */
+.phone-shell .david-intent-icon i[data-lucide] {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--blue-deep);
+}
+
+/* ── Recommendation card venue icons ── */
+.phone-shell .david-rec-icon i[data-lucide] {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--blue-mid);
+}
+
+/* ── Intel / sparkles note ── */
+.phone-shell .david-intel-dot i[data-lucide] {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--teal);
+}
+
+/* ── Next-action buttons ── */
+.phone-shell .david-next-btn i[data-lucide] {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* ── Share panel header icon ── */
+.phone-shell .david-share-icon i[data-lucide] {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--blue-mid);
+}
+
+/* ── Booking phone icon ── */
+.phone-shell .david-book-phone-icon i[data-lucide] {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--blue-deep);
+}
+
+/* ── Book note info icon ── */
+.phone-shell .david-book-note i[data-lucide] {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+/* ── Live update icons ── */
+.phone-shell .live-update-icon i[data-lucide] {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.phone-shell .live-update--amber .live-update-icon i[data-lucide] { color: var(--amber); }
+.phone-shell .live-update--green .live-update-icon i[data-lucide] { color: var(--green); }
+.phone-shell .live-update--blue  .live-update-icon i[data-lucide] { color: var(--blue-mid); }
+
+/* ── Report prompt icon ── */
+.phone-shell .david-report-prompt-icon i[data-lucide] {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--amber);
+}
+
+/* ── Report photo placeholder ── */
+.phone-shell .david-report-photo-placeholder i[data-lucide] {
+  width: 1rem;
+  height: 1rem;
+  color: var(--text-light);
+}
+
+/* ── Confirmation checkmark ── */
+.phone-shell .david-confirm-icon i[data-lucide] {
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--green);
+}
+
+/* ── Route update icon ── */
+.phone-shell .david-route-update-icon i[data-lucide] {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--blue-deep);
+}
+
+/* ── Quick action chips ── */
+.phone-shell .david-action-chip i[data-lucide] {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+}
+
+/* ── Journey summary icons ── */
+.phone-shell .journey-summary i[data-lucide] {
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-right: 0.2rem;
+  color: var(--text-mid);
+}
+
+/* ── Emergency alert bar ── */
+.phone-shell .alert-icon i[data-lucide] {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--white);
+}
+
+/* ── Business scene ── */
+.phone-shell .biz-trust-icon i[data-lucide] {
+  width: 1rem;
+  height: 1rem;
+  color: var(--blue-mid);
+}
+
+.phone-shell .biz-found-icon i[data-lucide] {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--green);
+}
+
+.phone-shell .biz-result-icon i[data-lucide] {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--blue-mid);
+}
+
+/* Activated checkmark — larger, green, centred */
+.phone-shell .biz-activated-icon i[data-lucide] {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--green);
+}
+
+/* ── Hiroshi language card globe icon ── */
+.phone-shell .hiroshi-lang-icon i[data-lucide] {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: var(--teal);
+}
+
+/* ── card-meta location pins in Events ── */
+.phone-shell .card-meta i[data-lucide] {
+  width: 0.72rem;
+  height: 0.72rem;
+  color: var(--text-light);
+  margin-right: 0.1rem;
+}
+
+body.vision-mode .nav-bar {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+
+/* =====================================================
+   INPUT FIELDS — prevent overflow, full-width
+===================================================== */
+
+/* Business search bar: fill the container */
+.biz-search-row {
+  max-width: 100%;
+  flex-direction: row;  /* keep it as a row (not stacked) */
+}
+
+.biz-input {
+  min-width: 0;         /* allows flex child to shrink below content size */
+  width: 0;             /* let flex: 1 take over without overflow */
+}
+
+/* David assistant search bar: fill the container */
+.david-assistant-input-row {
+  max-width: 100%;
+}
+
+.david-intent-input {
+  min-width: 0;
+  width: 0;             /* same shrink trick */
+}
+
+/* All text inputs and selects: prevent overflow */
+input[type="text"],
+select,
+.david-report-value,
+.biz-select {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BUSINESS SCENE — field row layout
+===================================================== */
+
+/* Stack label above value (instead of side-by-side) on narrow screens */
+.biz-field {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.7rem 0;
+}
+
+.biz-field-label {
+  min-width: unset;    /* remove the 130px minimum that causes crowding */
+  font-size: 0.72rem;
+}
+
+.biz-field-value {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  word-break: break-word;  /* long names/addresses wrap gracefully */
+}
+
+/* Prefilled badge: sits below the value, left-aligned */
+.biz-prefill-badge {
+  margin-top: 0.2rem;
+  align-self: flex-start;
+}
+
+/* Search input placeholder text — don't let it overflow */
+.biz-input::placeholder {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Step 2 complete-profile: more breathing room between sections */
+.biz-complete-grid {
+  gap: 1.8rem;
+}
+
+.biz-complete-label {
+  margin-bottom: 0.2rem;
+}
+
+/* Checkbox group items: slightly more spaced */
+.biz-checkbox-group {
+  gap: 0.65rem;
+}
+
+.biz-checkbox-label {
+  line-height: 1.4;
+  font-size: 0.86rem;
+}
+
+/* Selects: full width */
+.biz-select {
+  width: 100%;
+}
+
+
+/* =====================================================
+   SCENE 2: DAVID — event & share label widths
+===================================================== */
+
+/* Event detail rows: remove fixed label width */
+.event-label {
+  min-width: 90px;   /* narrower than the 125px desktop value */
+  font-size: 0.79rem;
+}
+
+.event-value {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+/* Share detail rows: same treatment */
+.david-share-label {
+  min-width: 90px;   /* narrower than the 130px desktop value */
+  font-size: 0.77rem;
+}
+
+/* Report form: full-width inputs */
+.david-report-value {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Report photo placeholder: prevent overflow */
+.david-report-photo-placeholder {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   SCENE 2: ASSISTANT — recommendation cards
+===================================================== */
+
+/* Let long venue names wrap rather than overflow */
+.david-rec-venue strong {
+  word-break: break-word;
+  line-height: 1.35;
+}
+
+/* Intel note: allow text to wrap */
+.david-intel-note {
+  flex-wrap: wrap;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   ATTRIBUTION RIBBON — line height on narrow
+===================================================== */
+.attribution-ribbon {
+  line-height: 1.55;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.72rem;
+}
+
+
+/* =====================================================
+   SCENE 3: BIZ PANEL — found card adjustments
+===================================================== */
+
+/* Found header: allow name to wrap */
+.biz-found-name {
+  word-break: break-word;
+  line-height: 1.35;
+  font-size: 0.95rem;
+}
+
+/* Found note text: better line height */
+.biz-found-note {
+  font-size: 0.79rem;
+  line-height: 1.6;
+  padding: 0.8rem 1.1rem;
+}
+
+/* Full-width confirm button inside found card */
+.biz-found-card .btn-biz-primary {
+  width: calc(100% - 2.2rem);
+  margin: 0.9rem 1.1rem;
+  text-align: center;
+}
+
+/* Result items: let text breathe */
+.biz-result-item strong {
+  line-height: 1.35;
+  font-size: 0.84rem;
+}
+
+.biz-result-item p {
+  line-height: 1.55;
+  font-size: 0.79rem;
+}
+
+/* Concept note: better wrapping */
+.biz-concept-note {
+  line-height: 1.6;
+  font-size: 0.77rem;
+}
+
+/* Activated title: wrap gracefully */
+.biz-activated-title {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.biz-activated-sub {
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   DAVID CONTEXT PILLS — wrap cleanly on mobile
+===================================================== */
+.david-context-pills {
+  gap: 0.4rem;
+}
+
+.ctx-pill {
+  font-size: 0.72rem;
+  padding: 0.24rem 0.62rem;
+  line-height: 1.3;
+}
+
+
+/* =====================================================
+   DIFF PANEL — text wrapping
+===================================================== */
+.diff-row {
+  font-size: 0.81rem;
+  line-height: 1.5;
+  padding: 0.65rem 0.9rem;
+}
+
+
+/* =====================================================
+   LIVE UPDATES — compact on mobile
+===================================================== */
+.live-update {
+  padding: 0.75rem 0.85rem;
+  font-size: 0.82rem;
+}
+
+.live-update strong {
+  font-size: 0.81rem;
+}
+
+.live-update p {
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   CARDS — tighter padding on mobile
+===================================================== */
+.info-card {
+  padding: 1.1rem 1.2rem;
+}
+
+.david-card {
+  padding: 1.1rem 1.2rem;
+}
+
+.card-detail {
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.card-head h3 {
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+
+/* =====================================================
+   JOURNEY STEPS — readable on mobile
+===================================================== */
+.journey-step-body strong {
+  font-size: 0.85rem;
+}
+
+.journey-time {
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.journey-summary {
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+
+/* =====================================================
+   WELCOME SCENE — search block
+===================================================== */
+.welcome-search-block {
+  padding: 1.3rem 1.1rem;
+}
+
+.search-bar input {
+  font-size: 0.88rem;
+}
+
+
+/* =====================================================
+   SCENE TAG — smaller on mobile
+===================================================== */
+.scene-tag {
+  font-size: 0.6rem;
+}
+
+
+/* =====================================================
+   SCENE 2: VENUE ACTIONS — sub-panel padding
+===================================================== */
+.david-action-subpanel {
+  padding: 1.1rem 1.1rem;
+}
+
+.david-share-details {
+  padding: 0.2rem 1rem;
+}
+
+.david-share-header {
+  padding: 0.85rem 1rem;
+}
+
+.david-share-btns {
+  padding: 0.85rem 1rem;
+}
+
+.david-book-phone {
+  padding: 0.75rem 0.9rem;
+}
+
+.david-book-note {
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   REPORT FLOW — consistent spacing
+===================================================== */
+.david-report-panel {
+  padding: 1.2rem 1.1rem;
+}
+
+.david-report-fields {
+  gap: 1rem;
+}
+
+.david-report-label {
+  font-size: 0.65rem;
+}
+
+.david-report-value {
+  font-size: 0.84rem;
+  padding: 0.6rem 0.8rem;
+}
+
+
+/* =====================================================
+   ACCESSIBILITY LIST — readable on mobile
+===================================================== */
+.access-item strong {
+  font-size: 0.83rem;
+}
+
+.access-item span {
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+
+/* =====================================================
+   HIROSHI VISITOR VIEW — language card
+===================================================== */
+.hiroshi-input-text {
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
+.hiroshi-output-text {
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.hiroshi-lang-note {
+  font-size: 0.74rem;
+  line-height: 1.6;
+  padding: 0.75rem 1rem;
+}
+
+.hiroshi-translated-hint {
+  font-size: 0.7rem;
+}
+
+
+/* =====================================================
+   INTENT SELECTOR — tighter padding
+===================================================== */
+.david-intent-selector {
+  padding: 1.3rem 1.1rem;
+}
+
+.david-intent-card {
+  padding: 0.9rem 1rem;
+}
+
+.david-intent-card-body strong {
+  font-size: 0.87rem;
+}
+
+.david-intent-card-body span {
+  font-size: 0.75rem;
+}
+
+
+/* =====================================================
+   ASSISTANT PANEL — tighter padding
+===================================================== */
+.david-assistant-panel {
+  padding: 1.3rem 1.1rem;
+}
+
+.david-assistant-heading {
+  font-size: 1rem;
+}
+
+.david-assistant-sub {
+  font-size: 0.85rem;
+}
+
+.david-assistant-response {
+  font-size: 0.88rem;
+}
+
+/* Rec card desc text: comfortable on mobile */
+.david-rec-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Selected venue bar: prevent name overflow */
+.david-venue-selected-bar strong {
+  word-break: break-word;
+}
+
+/* Back-to-intent link: a bit more space above */
+.david-back-to-intent {
+  margin-top: 1rem;
+}
+
+
+/* =====================================================
+   FLOATING ACTION BUTTON — Report an issue
+   Lives inside .phone-shell (position:relative) so it
+   is clipped to the device frame, not the viewport.
+   Floats above the nav bar with a clear bottom offset.
+===================================================== */
+
+/* FAB base — hidden by default, revealed via .report-fab--visible */
+.report-fab {
+  position: absolute;
+  /* 60px = nav height, 12px = breathing gap */
+  bottom: calc(60px + 12px);
+  right: 16px;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.6rem 1rem 0.6rem 0.8rem;
+
+  background: var(--blue-deep);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;    /* pill shape */
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
+  /* Subtle elevation */
+  box-shadow:
+    0 2px 8px rgba(0, 48, 135, 0.35),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+
+  /* Hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.94);
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s,
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Don't let it grow/shrink with text */
+  flex-shrink: 0;
+}
+
+.report-fab:active {
+  transform: scale(0.96);
+  box-shadow:
+    0 1px 4px rgba(0, 48, 135, 0.3),
+    0 0px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Visible state */
+.report-fab--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Icon inside FAB */
+.report-fab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yellow);
+}
+
+.report-fab-icon i[data-lucide] {
+  width: 1rem !important;
+  height: 1rem !important;
+  color: var(--yellow) !important;
+  stroke-width: 2.2 !important;
+  fill: none;
+}
+
+/* Label text */
+.report-fab-label {
+  line-height: 1;
+}
+
+
+/* =====================================================
+   FAB — SCROLL PADDING
+   When the FAB is visible, the last item in the scrollable
+   area could be hidden behind it. Extra padding on the
+   scene itself ensures nothing is covered.
+   44px FAB height + 12px gap above nav + 12px margin = 68px.
+===================================================== */
+.has-fab .scene {
+  padding-bottom: 5rem;
+}
+
+
